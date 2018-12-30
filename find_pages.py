@@ -1,12 +1,14 @@
 import requests as r
 from bs4 import BeautifulSoup
 
+def find_a_under_div(url, div_class):
+    page = BeautifulSoup(r.get(url).text, "html5lib")
+    return [i["href"][1:] for i in page.find("div", {"class": div_class}).find_all("a")]
+
 URL = "http://kingkiller.wiki/w/"
 
-base = BeautifulSoup(r.get(URL + "Special:AllPages").text, "html5lib")
-all_pages = [i["href"][1:] for i in base.find("div", {"class": "mw-allpages-body"}).find_all("a")]
+all_pages = find_a_under_div(URL + "Special:AllPages", "mw-allpages-body")
 
 for href in all_pages:
-    page = BeautifulSoup(r.get(URL + href).text, "html5lib")
-    all_linked_pages = [i["href"][1:] for i in page.find("div", {"class": "mw-body-content"}).find_all("a")]
+    all_linked_pages = find_a_under_div(URL + href, "mw-body-content")
     all_pages = list(set(all_pages).union(set(all_linked_pages)))
