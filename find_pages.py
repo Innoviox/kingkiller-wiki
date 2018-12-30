@@ -18,7 +18,7 @@ for href in all_pages:
             k = l.split("=")[1].split("&")[0]
             if k not in unknown_pages:
                 unknown_pages.append(k)
-                print(unknown_pages[-1])
+                print(" -", unknown_pages[-1])
         # elif l not in all_pages:
         #     all_pages.append(l)
     # all_pages = list(set(all_pages).union(set(all_linked_pages)))
