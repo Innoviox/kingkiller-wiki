@@ -1,10 +1,6 @@
 # kingkiller-wiki
 
-Find pages that still need work: pages that have been linked on other pages and that don't exist.
-
-
-
-TODO: Write style checkers
+Find pages that still need work: pages that have been linked on other pages that don't exist.
 
  - The_Lethani
  - Stormwal_Mountains
@@ -135,3 +131,5 @@ TODO: Write style checkers
  - The_Eld
  - Ralien
  - The_Ceald
+
+TODO: Write style checkers
